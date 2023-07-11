@@ -1,4 +1,4 @@
-import "./i18n"
+// import "./i18n"
 import "./utils/ignore-warnings"
 import React from "react"
 import { SafeAreaProvider, initialWindowMetrics } from "react-native-safe-area-context"

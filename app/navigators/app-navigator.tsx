@@ -10,7 +10,6 @@
 import React, { createRef, useEffect, useRef } from "react"
 import { useColorScheme } from "react-native"
 
-import { getThemeTypography, appendLanguageKeyToThemeTypography } from "../utils/theme"
 import { NavigationContainer, DefaultTheme, DarkTheme } from "@react-navigation/native"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import { navigationRef, useBackButtonHandler } from "./navigation-utilities"
@@ -19,7 +18,6 @@ import firebase, { ReactNativeFirebase } from "@react-native-firebase/app"
 import messaging from '@react-native-firebase/messaging'
 import { Alert } from "react-native"
 
-import { useStores } from "../models"
 import * as Device from 'expo-device';
 import * as Notifications from 'expo-notifications';
 
@@ -42,51 +40,8 @@ import { Platform } from "react-native"
  *   https://reactnavigation.org/docs/typescript#type-checking-the-navigator
  */
 export type NavigatorParamList = {
-    dummy: undefined
     LoginScreen: undefined
-    SignUpScreen: undefined
     LaunchScreen: undefined
-    IntroductionScreen: undefined
-    QuoteScreen: undefined
-    EmailVerificationScreen: undefined
-    MobileVerificationScreen: undefined
-    BirthCertificateScreen: undefined
-    GovtCertificateScreen: undefined
-    GenderScreen: undefined
-    DobScreen: undefined
-    NationalityScreen: undefined
-    NotificationsScreen: undefined
-    AboutUsScreen: undefined
-    HomeScreen: undefined
-    TermsPrivacyScreen: undefined
-    ProfileScreen: undefined
-    SettingsScreen: undefined
-    SubscriptionScreen: undefined
-    AccountScreen: undefined
-    LanguageScreen: undefined
-    ChangeEmailScreen: undefined
-    ChangePhoneNumberScreen: undefined
-    ChangePasswordScreen: undefined
-    NotificationsSettingsScreen: undefined
-    TermsAndPolicies: undefined
-    ReferAFriendScreen: undefined
-    AboutScreen: undefined
-    BillingHistoryScreen: undefined
-    DeactivateScreen: undefined
-    SelectedSubscriptionScreen: undefined
-    FaqScreen: undefined
-    SendFeedbackScreen: undefined
-    IntroductionVideoScreen: undefined
-    TermsVideoScreen: undefined
-    MatchProfileScreen: undefined
-    FeedbackWorkingOutScreen: undefined
-    DeclinedScreen: undefined
-    QuestionsScreen: undefined
-    ChangeEmailOTPScreen: undefined
-    WorkOutOrDeclined: undefined
-    RequestContact: undefined
-    VideoConsentScreen: undefined
-    RegistrationForScreen: undefined
 }
 
 // Documentation: https://reactnavigation.org/docs/stack-navigator/
@@ -121,74 +76,7 @@ const AppStack = () => {
             initialRouteName="LaunchScreen"
         >
             <Stack.Screen name="LaunchScreen" component={Screens.LaunchScreen} />
-            <Stack.Screen name="HomeScreen" component={Screens.HomeScreen} />
-            <Stack.Screen name="QuestionsScreen" component={Screens.QuestionsScreen} />
-            <Stack.Screen name="SettingsScreen" component={Screens.SettingsScreen} />
-            <Stack.Screen name="ProfileScreen" component={Screens.ProfileScreen} />
-            <Stack.Screen
-                name="IntroductionVideoScreen"
-                component={Screens.IntroductionVideoScreen}
-            />
-            <Stack.Screen name="TermsVideoScreen" component={Screens.TermsVideoScreen} />
             <Stack.Screen name="LoginScreen" component={Screens.LoginScreen} />
-            <Stack.Screen name="SignUpScreen" component={Screens.SignUpScreen} />
-            <Stack.Screen name="RegistrationForScreen" component={Screens.RegistrationForScreen} />
-            <Stack.Screen name="SubscriptionScreen" component={Screens.SubscriptionScreen} />
-            <Stack.Screen name="IntroductionScreen" component={Screens.IntroductionScreen} />
-            <Stack.Screen name="LanguageScreen" component={Screens.LanguageScreen} />
-            <Stack.Screen name="ChangeEmailScreen" component={Screens.ChangeEmailScreen} />
-            <Stack.Screen name="QuoteScreen" component={Screens.QuoteScreen} />
-            <Stack.Screen name="ReferAFriendScreen" component={Screens.ReferAFriendScreen} />
-            <Stack.Screen name="NotificationsScreen" component={Screens.NotificationsScreen} />
-            <Stack.Screen name="AccountScreen" component={Screens.AccountScreen} />
-            <Stack.Screen
-                name="EmailVerificationScreen"
-                component={Screens.EmailVerificationScreen}
-            />
-            <Stack.Screen
-                name="ChangePhoneNumberScreen"
-                component={Screens.ChangePhoneNumberScreen}
-            />
-            <Stack.Screen name="ChangePasswordScreen" component={Screens.ChangePasswordScreen} />
-            <Stack.Screen name="TermsAndPolicies" component={Screens.TermsAndPolicies} />
-            <Stack.Screen name="BillingHistoryScreen" component={Screens.BillingHistoryScreen} />
-            <Stack.Screen name="AboutScreen" component={Screens.AboutScreen} />
-            <Stack.Screen name="FaqScreen" component={Screens.FaqScreen} />
-            <Stack.Screen
-                name="NotificationsSettingsScreen"
-                component={Screens.NotificationsSettingsScreen}
-            />
-            <Stack.Screen
-                name="MobileVerificationScreen"
-                component={Screens.MobileVerificationScreen}
-            />
-            <Stack.Screen
-                name="BirthCertificateScreen"
-                component={Screens.BirthCertificateScreen}
-            />
-            <Stack.Screen name="GovtCertificateScreen" component={Screens.GovtCertificateScreen} />
-            <Stack.Screen name="DeactivateScreen" component={Screens.DeactivateScreen} />
-            <Stack.Screen
-                name="SelectedSubscriptionScreen"
-                component={Screens.SelectedSubscriptionScreen}
-            />
-            <Stack.Screen name="GenderScreen" component={Screens.GenderScreen} />
-            <Stack.Screen name="DobScreen" component={Screens.DobScreen} />
-            <Stack.Screen name="NationalityScreen" component={Screens.NationalityScreen} />
-            <Stack.Screen name="AboutUsScreen" component={Screens.AboutUsScreen} />
-            <Stack.Screen name="TermsPrivacyScreen" component={Screens.TermsPrivacyScreen} />
-            <Stack.Screen name="VideoConsentScreen" component={Screens.VideoConsentScreen} />
-            <Stack.Screen name="MatchProfileScreen" component={Screens.MatchProfileScreen} />
-            <Stack.Screen
-                name="FeedbackWorkingOutScreen"
-                component={Screens.FeedbackWorkingOutScreen}
-            />
-            <Stack.Screen name="DeclinedScreen" component={Screens.DeclinedScreen} />
-            <Stack.Screen name="SendFeedbackScreen" component={Screens.SendFeedbackScreen} />
-            <Stack.Screen name="ChangeEmailOTPScreen" component={Screens.ChangeEmailOTPScreen} />
-            <Stack.Screen name="WorkOutOrDeclined" component={Screens.WorkOutOrDeclined} />
-            <Stack.Screen name="RequestContact" component={Screens.RequestContact} />
-            <Stack.Screen name="dummy" component={Screens.DummyScreen} />
         </Stack.Navigator>
     )
 }
@@ -198,74 +86,74 @@ interface NavigationProps extends Partial<React.ComponentProps<typeof Navigation
 export const AppNavigator = (props: NavigationProps) => {
     const colorScheme = useColorScheme()
 
-    useEffect(() => {
-        const unsubscribe = messaging().onMessage(async remoteMessage => {
+    // useEffect(() => {
+    //     const unsubscribe = messaging().onMessage(async remoteMessage => {
 
-            console.log(JSON.stringify(remoteMessage))
-        });
-        return unsubscribe;
-    }, []);
-    const { pushNotificationsStore, userStore, i18nStore } = useStores()
-    let popupRef = useRef(null)
-    const theme = useTheme()
+    //         console.log(JSON.stringify(remoteMessage))
+    //     });
+    //     return unsubscribe;
+    // }, []);
+    // // const { pushNotificationsStore, userStore, i18nStore } = useStores()
+    // let popupRef = useRef(null)
+    // const theme = useTheme()
 
-    const checkPermission = async () => {
-        const isReg = firebase.messaging().isDeviceRegisteredForRemoteMessages;
+    // const checkPermission = async () => {
+    //     const isReg = firebase.messaging().isDeviceRegisteredForRemoteMessages;
 
-        const enabled = await firebase.messaging().hasPermission();
-        if (enabled == 1) {
-            // Get FCM Token
-            getToken()
-        } else {
-            // Request Permission
-            requestPermission()
-        }
-    }
+    //     const enabled = await firebase.messaging().hasPermission();
+    //     if (enabled == 1) {
+    //         // Get FCM Token
+    //         getToken()
+    //     } else {
+    //         // Request Permission
+    //         requestPermission()
+    //     }
+    // }
 
-    const requestPermission = async () => {
-        try {
-            const authStatus = await messaging().requestPermission()
-            const enabled = authStatus == messaging.AuthorizationStatus.AUTHORIZED || authStatus == messaging.AuthorizationStatus.PROVISIONAL
-            if (enabled) {
-                getToken()
-            }
-        } catch (error) {
-        }
-    }
+    // const requestPermission = async () => {
+    //     try {
+    //         const authStatus = await messaging().requestPermission()
+    //         const enabled = authStatus == messaging.AuthorizationStatus.AUTHORIZED || authStatus == messaging.AuthorizationStatus.PROVISIONAL
+    //         if (enabled) {
+    //             getToken()
+    //         }
+    //     } catch (error) {
+    //     }
+    // }
 
-    // TODO: Get FCM Token
-    const getToken = async () => {
-        let fcmToken = await messaging().getToken()
-        let data = {
-            registration_id: fcmToken,
-            type: Platform.OS
-        }
-        console.log("this is working or not how we know that ", data)
-        pushNotificationsStore.setFCMToken(data)
-        // AuthActions.setFCMToken(dispatch, data)
-    }
-    const backgroundHandler = () => {
-        messaging().onNotificationOpenedApp(async (remoteMessage) => {
-            console.log("this is background message for you ", remoteMessage)
-        });
-        messaging().getInitialNotification()
-            .then(async (remoteMessage) => {
-                console.log("this is remote message for you ", remoteMessage)
-            })
-    }
+    // // TODO: Get FCM Token
+    // const getToken = async () => {
+    //     let fcmToken = await messaging().getToken()
+    //     let data = {
+    //         registration_id: fcmToken,
+    //         type: Platform.OS
+    //     }
+    //     console.log("this is working or not how we know that ", data)
+    //     pushNotificationsStore.setFCMToken(data)
+    //     // AuthActions.setFCMToken(dispatch, data)
+    // }
+    // const backgroundHandler = () => {
+    //     messaging().onNotificationOpenedApp(async (remoteMessage) => {
+    //         console.log("this is background message for you ", remoteMessage)
+    //     });
+    //     messaging().getInitialNotification()
+    //         .then(async (remoteMessage) => {
+    //             console.log("this is remote message for you ", remoteMessage)
+    //         })
+    // }
 
-    // TODO: Listen to notification in foreground state
-    const foreground = () => {
-        messaging().onMessage(async (remoteMessage) => {
-            console.log('FOREGROUND :: ', remoteMessage);
-            popupRef.current.show({
-                appTitle: 'Admin',
-                title: remoteMessage.notification.title,
-                body: remoteMessage.notification.body,
-                slideOutTime: 2000,
-            });
-        });
-    }
+    // // TODO: Listen to notification in foreground state
+    // const foreground = () => {
+    //     messaging().onMessage(async (remoteMessage) => {
+    //         console.log('FOREGROUND :: ', remoteMessage);
+    //         popupRef.current.show({
+    //             appTitle: 'Admin',
+    //             title: remoteMessage.notification.title,
+    //             body: remoteMessage.notification.body,
+    //             slideOutTime: 2000,
+    //         });
+    //     });
+    // }
 
     const renderCustomPopup = ({ appIconSource, appTitle, timeText, title, body }) => (
         <View
@@ -287,17 +175,17 @@ export const AppNavigator = (props: NavigationProps) => {
                 <View>
                     <Text
                         mx={"4"}
-                        {...getThemeTypography(theme, appendLanguageKeyToThemeTypography(
-                            "heading.6",
-                            i18nStore.getCurrentLanguage(),
-                        ))}
+                        // {...getThemeTypography(theme, appendLanguageKeyToThemeTypography(
+                        //     "heading.6",
+                        //     i18nStore.getCurrentLanguage(),
+                        // ))}
                     >{title}</Text>
                     <Text
                         mx={"4"}
-                        {...getThemeTypography(theme, appendLanguageKeyToThemeTypography(
-                            "paragraph.6",
-                            i18nStore.getCurrentLanguage(),
-                        ))}
+                        // {...getThemeTypography(theme, appendLanguageKeyToThemeTypography(
+                        //     "paragraph.6",
+                        //     i18nStore.getCurrentLanguage(),
+                        // ))}
                     >{body}</Text>
                 </View>
             </Row>
@@ -307,28 +195,28 @@ export const AppNavigator = (props: NavigationProps) => {
     );
 
     // TODO: Display notification popup when app is in foreground
-    const getNotificationPopup = () => {
-        return <NotificationPopup
-            renderPopupContent={renderCustomPopup}
-            shouldChildHandleResponderStart={true}
-            shouldChildHandleResponderMove={true}
-            ref={popupRef} />
-    }
-    useEffect(() => {
-        setTimeout(() => {
-            checkPermission()
-            foreground()
-            backgroundHandler()
-        }, 1000);
+    // const getNotificationPopup = () => {
+    //     return <NotificationPopup
+    //         renderPopupContent={renderCustomPopup}
+    //         shouldChildHandleResponderStart={true}
+    //         shouldChildHandleResponderMove={true}
+    //         ref={popupRef} />
+    // }
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         checkPermission()
+    //         foreground()
+    //         backgroundHandler()
+    //     }, 1000);
 
-        storage.getItem('access_token').then((t) => {
-            if (t) {
-                userStore.getLoggedInUser()
-            } else {
-                userStore.logoutUser()
-            }
-        });
-    }, []);
+    //     storage.getItem('access_token').then((t) => {
+    //         if (t) {
+    //             userStore.getLoggedInUser()
+    //         } else {
+    //             userStore.logoutUser()
+    //         }
+    //     });
+    // }, []);
     useBackButtonHandler(canExit)
 
 
@@ -339,7 +227,7 @@ export const AppNavigator = (props: NavigationProps) => {
             {...props}
         >
             <AppStack />
-            {getNotificationPopup()}
+            {/* {getNotificationPopup()} */}
         </NavigationContainer>
     )
 }
